@@ -1,6 +1,7 @@
 #ifndef _TODO_API_FILE_
 #define _TODO_API_FILE_
 
+#include<stdlib.h>
 #include<stdbool.h>
 #include<time.h>
 
@@ -45,9 +46,9 @@ static **todos = NULL;
  * @param msg 
  * @param is_important 
  * @param deadline 
- * @return todo_t or NULL
+ * @return todo_t or NULL if could not create
  */
-todo_t todos_create(char* msg, bool is_important, time_t deadline);
+todo_t *todos_create(char* msg, bool is_important, time_t deadline);
 
 
 /**
