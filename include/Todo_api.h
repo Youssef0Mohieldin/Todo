@@ -40,8 +40,9 @@ static todo_t **todos = NULL;
 // Api
 
 /**
- * @brief returns a todo
- * @note must call delete to free the dynamic memory alocated
+ * @brief returns a todo.
+ * @note must call delete to free the dynamic memory alocated.
+ * @note msg must be dynamicly alocated beforehand.
  * 
  * @param msg 
  * @param is_important 
