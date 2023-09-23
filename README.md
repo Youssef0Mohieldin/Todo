@@ -1,4 +1,3 @@
 # Todo app
 
-made with ♥ and C 
-
+made with ♥ and C
