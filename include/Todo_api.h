@@ -59,7 +59,7 @@ todo_t *todos_create(char* msg, bool is_important, time_t deadline);
  * @param ret_to return location
  * @return status_t 
  */
-status_t todos_delete(int id, todo_t * ret_to);
+status_t todos_delete(int id);
 
 /**
  * @brief returns the full array of todos
