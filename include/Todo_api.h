@@ -61,6 +61,7 @@ status_t todos_delete(int id, todo_t * ret_to);
 
 /**
  * @brief returns the full array of todos
+ * @note can be used to check if the todos array is initialized
  * 
  * @param ret_to return location (array pointer)
  * @param len 
