@@ -65,12 +65,12 @@ status_t todos_delete(int id);
 /**
  * @brief returns the full array of todos
  * @note can be used to check if the todos array is initialized
- * 
- * @param ret_to return location (array pointer)
- * @param len 
+ *  
+ * @param ret_to return a the array of (pointers to todos) :(
+ * @param len_ret number of items
  * @return status_t 
  */
-status_t todos_get_all(todo_t **ret_to, int *len);
+status_t todos_get_all(todo_t ***ret_to, int *len_ret);
 
 /**
  * @brief get the todos marked with the important flag
@@ -78,7 +78,7 @@ status_t todos_get_all(todo_t **ret_to, int *len);
  * @param ret_to 
  * @return status_t 
  */
-status_t todos_get_important(todo_t *ret_to);
+status_t todos_get_important(todo_t ***ret_to);
 
 /**
  * @brief mark a todo as important

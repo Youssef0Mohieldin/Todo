@@ -31,16 +31,26 @@ status_t todos_delete(int id){
             free(todos[i]->msg);
             free(todos[i]);
             shift_removal(todos, i, todos_get_num());
-            break;
+            todos_len -= 1;
+            return status_OK;
         }
     }
-    
-    todos_len -= 1;
+    return status_NOK;
 }
 
 
-status_t todos_get_all(todo_t **ret_to, int *len);
-status_t todos_get_important(todo_t *ret_to);
+status_t todos_get_all(todo_t ***ret_to, int *len_ret) {
+    *ret_to = malloc(todos_get_num() * sizeof(todo_t *));
+    if (*ret_to == NULL) {
+        return status_NOK;
+    }
+    for (int i = 0; i < todos_get_num; i++) {
+        (*ret_to)[i] = &todos[i];
+    }
+    *len_ret = todos_get_num();
+    return status_OK;
+}
+status_t todos_get_important(todo_t ***ret_to);
 status_t todos_set_important(int id);
 
 int todos_get_num(){
