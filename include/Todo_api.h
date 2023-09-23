@@ -4,6 +4,7 @@
 #include<stdlib.h>
 #include<stdbool.h>
 #include<time.h>
+#include<utils.h>
 
 /**
  * @brief Struct representing a todo item.
@@ -34,7 +35,7 @@ typedef enum{
  * 
  */
 static todo_t **todos = NULL;
-
+static int todos_len = 0;
 
 
 // Api
@@ -86,6 +87,13 @@ status_t todos_get_important(todo_t *ret_to);
  * @return status_t 
  */
 status_t todos_set_important(int id);
+
+/**
+ * @brief returns number of todos
+ * 
+ * @return int 
+ */
+int todos_get_num();
 
 
 #endif // _TODO_API_FILE_
