@@ -33,7 +33,7 @@ typedef enum{
  * @brief the main pointer to the todos
  * 
  */
-static **todos = NULL;
+static todo_t **todos = NULL;
 
 
 
