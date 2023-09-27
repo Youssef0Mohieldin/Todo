@@ -3,33 +3,35 @@
 
 
 
-status_t todos_create(todo_t *todo, char *msg, bool is_important, time_t deadline)
+status_t todos_create(todo_t **todo, char *msg, bool is_important, time_t deadline)
 {
     static int next_id = 1;
     if (msg == NULL)
         return status_NOK;
-    if(todo == NULL)
+    if((*todo) == NULL)
     {
-        todo = malloc(sizeof(todo_t));
-        todo->id = next_id++;
-        todo->is_done = false;
-        todo->is_important = is_important;
-        todo->msg = msg;
-        todo->deadline = deadline;
-        todo->date_created = time(NULL);
-        printf("id after creating:%d\n");
+        printf("create:if\n");
+
+        *todo = malloc(sizeof(todo_t));
+        (*todo)->id = next_id++;
+        (*todo)->is_done = false;
+        (*todo)->is_important = is_important;
+        (*todo)->msg = msg;
+        (*todo)->deadline = deadline;
+        (*todo)->date_created = time(NULL);
+        printf("id after creating:%d\n", (*todo)->id);
     }
     else
     {
-        todo->next->id = next_id++;
-        todo->next->is_done = false;
-        todo->next->is_important = is_important;
-        todo->next->msg = msg;
-        todo->next->deadline = deadline;
-        todo->next->date_created = time(NULL);
+        printf("create: else %d \n", (*todo)->id);
+        (*todo)->next = malloc(sizeof(todo_t));
+        (*todo)->next->id = next_id++;
+        (*todo)->next->is_done = false;
+        (*todo)->next->is_important = is_important;
+        (*todo)->next->msg = msg;
+        (*todo)->next->deadline = deadline;
+        (*todo)->next->date_created = time(NULL);
     }
-    todo->next = malloc(sizeof(todo_t));
-
 
     return status_OK;
 }

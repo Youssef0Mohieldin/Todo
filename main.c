@@ -12,29 +12,21 @@ void print_todos_options();
 int main(int argc, char *argv[])
 {
     int option;
-    todos_create(head, "my name is youssef", false, time(NULL));
+    char t[] = "s";
+    todos_create(&head, t, false, time(NULL));
 
     printf("id is:%d\n", head->id);
-    todo_t ret_to;
     
+    todo_t ret_to;    
     status_t s = todos_get_by_id(head, 1, &ret_to);
     if (s == status_OK)
     {
         printf("found\n");
-    }else{
-    
-        printf("not found\n");
         printf("%d\n", ret_to.id);
+    }else{
+        printf("not found\n");
     }
-    while (true)
-    {
-       /*  printf("TODOS APP\n");
-        if(!todos_get_num()){
-            print_no_todos_options();
-        }else{
-            print_todos_options();
-        } */
-    }
+
 }
 
 

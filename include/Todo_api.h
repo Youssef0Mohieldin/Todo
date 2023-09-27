@@ -46,7 +46,7 @@ typedef enum
  * @return todo_t or NULL if could not create
  */
 
-status_t todos_create(todo_t *todo, char *msg, bool is_important, time_t deadline);
+status_t todos_create(todo_t **todo, char *msg, bool is_important, time_t deadline);
 /**
  * @brief deletes the todo (frees the alocated memory)
  *
